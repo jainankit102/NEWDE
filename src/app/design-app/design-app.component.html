@@ -1,0 +1,6 @@
+<div class="list-pannel">
+  <app-list-of-element></app-list-of-element>
+</div>
+<div class="schema-pannel" (dragover)="allowDrop($event)" (drop)="appendElement($event)">
+  <app-flow-chart-diagram [draggedElem]="draggedElem"></app-flow-chart-diagram>
+</div>

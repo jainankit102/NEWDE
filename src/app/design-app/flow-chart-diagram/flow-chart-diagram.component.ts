@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-flow-chart-diagram',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flow-chart-diagram.component.css']
 })
 export class FlowChartDiagramComponent implements OnInit {
+
+  @Input() draggedElem;
 
   constructor() { }
 

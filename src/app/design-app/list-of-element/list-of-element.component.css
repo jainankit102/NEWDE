@@ -1,0 +1,9 @@
+.items {
+    margin: 20px;
+    background: blue;
+    color: white;
+    width: 80%;
+    height: 35px;
+    font-size: large;
+    text-align: center;
+}

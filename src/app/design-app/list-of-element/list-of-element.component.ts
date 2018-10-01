@@ -12,4 +12,8 @@ export class ListOfElementComponent implements OnInit {
   ngOnInit() {
   }
 
+  getElementId(event) {
+    event.dataTransfer.setData('key', event.target.id);
+  }
+
 }

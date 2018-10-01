@@ -1,0 +1,7 @@
+.appHeader {
+    text-align: center;
+    border: dashed 6px blue;
+    border-radius: 50%;
+    margin-top: 10px;
+    font-size: xx-large; 
+}
