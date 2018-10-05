@@ -2,5 +2,18 @@
   <app-list-of-element></app-list-of-element>
 </div>
 <div class="schema-pannel" (dragover)="allowDrop($event)" (drop)="appendElement($event)">
-  <app-flow-chart-diagram [draggedElem]="draggedElem"></app-flow-chart-diagram>
+  <svg width="100%" height="100%">
+    <ng-container [ngSwitch]="typeOfElement">
+
+      <g app-aalobject *ngSwitchCase="'aalObject'" [objectPosition]="userElementDragEvent"></g>
+
+
+    </ng-container>
+
+  </svg>
+  <!-- <app-flow-chart-diagram [draggedElem]="draggedElem"></app-flow-chart-diagram> -->
+
+
 </div>
+
+<app-view-element-property [viewElementProperty]="dummyPropertyData"></app-view-element-property>

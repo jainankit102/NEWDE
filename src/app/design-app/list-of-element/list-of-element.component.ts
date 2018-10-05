@@ -8,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class ListOfElementComponent implements OnInit {
 
   constructor() { }
-
+  objectCount = 0;
   ngOnInit() {
   }
 
   getElementId(event) {
-    event.dataTransfer.setData('key', event.target.id);
+    event.dataTransfer.setData('type', event.target.id);
+  }
+
+  getElementData(event: any, type: string) {
+    event.dataTransfer.setData('type', type);
+    this.objectCount++;
   }
 
 }

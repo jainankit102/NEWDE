@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewElementProperty, AALObject } from './design-app-model';
 
 @Component({
   selector: 'app-design-app',
@@ -7,20 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DesignAppComponent implements OnInit {
 
-  draggedElem = '';
+  typeOfElement = '';
+
+  userElementDragEvent: DragEvent;
   constructor() { }
+
+  objectProperty: AALObject = {
+    name: 'test',
+    id: '12345',
+  };
+
+  dummyPropertyData: ViewElementProperty = {
+    type: 'Object',
+    value: {}
+  };
 
   ngOnInit() {
   }
 
 
   allowDrop(event) {
+    // console.log('test', event);
+    this.userElementDragEvent = event;
     event.preventDefault();
   }
+
   appendElement(event) {
     event.preventDefault();
-    console.log(event.dataTransfer.getData('key'));
-    this.draggedElem = event.dataTransfer.getData('key');
+    console.log(event.dataTransfer.getData('type'));
+    this.typeOfElement = event.dataTransfer.getData('type');
   }
 
 }
