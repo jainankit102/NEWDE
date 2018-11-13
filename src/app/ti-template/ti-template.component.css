@@ -1,4 +1,4 @@
-.primary-header{
+.primary-header {
     background: #1776bf;
     color: white;
     height: 64px;
@@ -6,6 +6,7 @@
     width: 100%;
     align-items: center;
     white-space: nowrap;
+    display: flex;
 }
 
 .side-bar {
@@ -25,13 +26,18 @@
 .diagram-content {
     height: 70%;
     border: 1px solid;
+    border-top: 0px;
     background: url('./../../assets/background-Image.PNG');
-
 }
 
 .property-content {
     height: 30%;
     border: 1px solid;
+}
+
+.application-name {
+    margin: 0px;
+    font-size: 30px;
 }
 
 .rectangle {
@@ -58,24 +64,23 @@
     background: url('./../../assets/icons.jpg')
 }
 
-.object-icon{
+.object-icon {
     background-position: 0 1px;
 }
 
-.business-rule-icon{
+.business-rule-icon {
     background-position: -2px -268px;
-
 }
 
-.process-icon{
+.process-icon {
     background-position: -2px -140px;
 }
 
-.layoutrule-icon{
+.layoutrule-icon {
     background-position: -2px -408px;
 }
 
-.validation-icon{
+.validation-icon {
     background-position: -2px -549px;
 }
 
