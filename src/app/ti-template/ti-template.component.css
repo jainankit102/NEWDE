@@ -1,30 +1,80 @@
 .side-bar {
     border: 1px solid;
     width: 10%;
-    height: 750px;
-    background-color: #EBC2EC;
+    background-color: #f2f2f2;
 }
+
 .body-content {
     width: 90%;
     border: 1px solid;
 }
+
 .parent-content {
     display: flex;
+    height: 100vh;
 }
+
 .diagram-content {
     height: 70%;
     border: 1px solid;
-    background-color: #BEF588;
+    background: url('./../../assets/background-Image.PNG');
+
 }
+
 .property-content {
     height: 30%;
     border: 1px solid;
 }
+
 .rectangle {
-    height: 100px;
-    width: 100px;
-    border: 1px solid;
+    height: 106px;
+    border: .5px solid;
     margin: 20px;
+    padding: 14px;
+    background-color: white;
+    border-radius: 15px;
+    width: 144px;
+}
+
+.rectangle-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.icon-size {
+    height: 36px;
+    width: 36px;
+    min-height: 36px;
+    background: url('./../../assets/icons.jpg')
+}
+
+.object-icon{
+    background-position: 0 1px;
+}
+
+.business-rule-icon{
+    background-position: -2px -268px;
+
+}
+
+.process-icon{
+    background-position: -2px -140px;
+}
+
+.layoutrule-icon{
+    background-position: -2px -408px;
+}
+
+.validation-icon{
+    background-position: -2px -549px;
+}
+
+.title {
+    margin: 9px 0 0;
+    font-size: 18px;
+    text-align: center;
 }
 
 .object-content {
@@ -32,12 +82,13 @@
 }
 
 .singleObject {
-    height: 100px;
-    width: 100px;
-    border: 1px solid;
+    /* height: 100px;
+    width: 100px; */
+    /* border: 1px solid; */
     margin: 50px 20px 0px 20px;
-    background: aqua;
+    /* background: aqua; */
 }
+
 .line {
     background-color: black;
     position: absolute;
@@ -45,12 +96,14 @@
     height: 30px;
     margin: 20px 0px 0px 0px;
 }
+
 .line2 {
     background-color: black;
     position: absolute;
     height: 1px;
     margin: 20px 0px 0px 0px;
 }
+
 .line3 {
     background-color: black;
     position: absolute;
