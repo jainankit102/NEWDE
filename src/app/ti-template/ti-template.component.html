@@ -1,0 +1,25 @@
+<div class="parent-content">
+  <div class="side-bar">
+      <div id="object" class="rectangle" draggable="true" (dragstart)="dragRect($event)">
+
+      </div>
+  </div>
+  <div class="body-content">
+    <div *ngFor="let relation of payLoad.relation">
+      <div class="line" [style.margin-left]="(140*relation.sourceIndex)+70 + 'px'"></div>
+      <div class="line2" [style.width]="(relation.targetIndex-relation.sourceIndex)*140 +'px'" [style.margin-left]="(140*relation.sourceIndex)+70 + 'px'"></div>
+      <div class="line3" [style.margin-left]="(140*relation.targetIndex)+70 + 'px'"></div>
+    </div>
+      <div class="diagram-content" (dragover)="allowDrop($event)" (drop)="drop($event)">
+        <div class="object-content">
+          <div *ngFor="let object of payLoad.object; let i=index" class="singleObject" [id]="'Object_'+i" (click)="getObjectMeta($event)">
+            <img height="100" width="100" src="https://www.drivedominion.com/wp-content/uploads/2018/01/inv-mgnr-sem-database.png" alt="">
+          </div>
+        </div>
+
+      </div>
+      <div class="property-conent">
+        <app-template-property [objectMeta]="objectMeta" (objectName)="getObjectName($event)" (newRelation)="createRelation($event)"></app-template-property>
+      </div>
+  </div>
+</div>

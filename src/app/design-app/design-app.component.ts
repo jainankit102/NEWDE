@@ -9,6 +9,7 @@ import { ViewElementProperty, AALObject } from './design-app-model';
 export class DesignAppComponent implements OnInit {
 
   typeOfElement = '';
+  objectCount = 0;
 
   userElementDragEvent: DragEvent;
   constructor() { }
@@ -36,6 +37,7 @@ export class DesignAppComponent implements OnInit {
   appendElement(event) {
     event.preventDefault();
     console.log(event.dataTransfer.getData('type'));
+    this.objectCount++;
     this.typeOfElement = event.dataTransfer.getData('type');
   }
 

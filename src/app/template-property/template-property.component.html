@@ -1,0 +1,26 @@
+<div *ngIf="objectMeta.propertyType === 'object'" class="margin">
+  <div class="form-group">
+    <label for="usr">Enter Object Name:</label>
+    <input type="text" [value]="getObjectName(objectMeta.objectId)" class="form-control" #objectName>
+  </div>
+  <button type="button" class="btn btn-primary align" (click)="addObject(objectName)">Done</button>
+  <button type="button" class="btn btn-primary">Add Field</button>
+  <button type="button" class="btn btn-primary" (click)="addRelataion()">Add relation</button>
+  <div>
+    <div *ngIf="relationFlag" style="margin-top: 8px;">
+      <label for="1stObj" style="margin-left: 35%">Select 1st Object</label>
+    <select id="1stObj" #relObj1>
+      <option *ngFor="let object of objectMeta.payLoad.object" [value]="object.id" >{{object.objectName}}</option>
+    </select>
+    <label for="2ndObj">Select 2nd Object</label>
+    <select id="2ndObj" #relObj2>
+        <option *ngFor="let object of objectMeta.payLoad.object" [value]="object.id">{{object.objectName}}</option>
+    </select>
+    <div style="margin-left: 45%">
+        <button type="button" class="btn btn-primary" (click)="createRelation(relObj1, relObj2)">Add</button>
+        <button type="button" class="btn btn-primary" (click)="colapseRelation()">Cancel</button>
+    </div>
+    
+  </div>
+  </div>
+</div>
