@@ -1,5 +1,5 @@
 <div class="primary-header">
-  <h1 contenteditable="true" class="application-name">Enter application name</h1>
+  <h1 contenteditable="true" class="application-name" (change)="alert('test')">Enter application name</h1>
 </div>
 <div class="parent-content">
   <div class="side-bar">
@@ -26,9 +26,9 @@
   </div>
   <div class="body-content">
     <div *ngFor="let relation of payLoad.relation">
-      <div class="line" [style.margin-left]="(140*relation.sourceIndex)+70 + 'px'"></div>
-      <div class="line2" [style.width]="(relation.targetIndex-relation.sourceIndex)*140 +'px'" [style.margin-left]="(140*relation.sourceIndex)+70 + 'px'"></div>
-      <div class="line3" [style.margin-left]="(140*relation.targetIndex)+70 + 'px'"></div>
+      <div class="line" [style.margin-left]="(224*relation.sourceIndex)+110 + 'px'"></div>
+      <div class="line2" [style.width]="(relation.targetIndex-relation.sourceIndex)*224 +'px'" [style.margin-left]="(224*relation.sourceIndex)+110 + 'px'"></div>
+      <div class="line3" [style.margin-left]="(224*relation.targetIndex)+110 + 'px'"></div>
     </div>
     <div class="diagram-content" (dragover)="allowDrop($event)" (drop)="drop($event)">
       <div class="object-content">
