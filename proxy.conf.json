@@ -1,0 +1,7 @@
+{
+    "/networking": {
+        "target": "https://sss.vmaalqamain.eur.ad.sag",
+        "secure": false,
+        "changeOrigin": "true"
+    }
+}

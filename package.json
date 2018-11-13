@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -p 4800",
+    "start": "ng serve --host newde.softwareag.com --ssl --live-reload --proxy-config proxy.conf.json -p 4800",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
