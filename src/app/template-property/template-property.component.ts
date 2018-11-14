@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { TemplatePropertyService } from './template-property.service';
 
 @Component({
   selector: 'app-template-property',
@@ -11,7 +12,8 @@ export class TemplatePropertyComponent implements OnInit, OnChanges {
   @Output() objectName: EventEmitter<any> = new EventEmitter<any>();
   @Output() newRelation: EventEmitter<any> = new EventEmitter<any>();
   relationFlag = false;
-  constructor() { }
+  appMeta = '';
+  constructor(private templatePropertyService: TemplatePropertyService) { }
 
   ngOnInit() {
   }
@@ -21,7 +23,8 @@ export class TemplatePropertyComponent implements OnInit, OnChanges {
   }
 
   getObjectName(objectId) {
-    return this.objectMeta.payLoad.object.find(val => val.id === objectId) ?this.objectMeta.payLoad.object.find(val => val.id === objectId).objectName : '';
+    return this.objectMeta.payLoad.object.find(val => val.id === objectId) ?
+    this.objectMeta.payLoad.object.find(val => val.id === objectId).objectName : '';
   }
 
   addObject(event) {
@@ -44,6 +47,39 @@ export class TemplatePropertyComponent implements OnInit, OnChanges {
     const targetIndex = this.objectMeta.payLoad.object.findIndex(ind2 => ind2.id === target);
     const relationObj = {relationAlias: relationAlias, source: source, sourceIndex: sourceIndex, target: target, targetIndex: targetIndex};
     this.newRelation.emit(relationObj);
+  }
+
+  getObjectListXml() {
+    let objXML = '';
+    this.objectMeta.payLoad.object.forEach(element => {
+    objXML = objXML + '<table><table_name>![CDATA[' + element.value + ']]</table_name><field></field><primary_key>id</primary_key></table>';
+    });
+    return objXML;
+  }
+
+  getRelationXml() {
+    let relXML = '';
+    this.objectMeta.payLoad.relation.forEach(element => {
+      relXML = relXML + '<relationship><masterTable>![CDATA[' + element.relation.source + ']]</masterTable>' +
+      '<detailTable><![CDATA[' + element.relation.target + ']]></detailTable><cardinality>2</cardinality></relationship>';
+    });
+    return relXML;
+  }
+
+  createApplication() {
+    this.appMeta = '<scratchApplications>' +
+    '<application>' +
+      '<application_name><![CDATA[' + this.objectMeta.payLoad.appName + ']]></application_name>' +
+      '<application_type>0</application_type>' +
+        this.getObjectListXml() +
+    '</application>' +
+    '<tableRelationShip>' +
+    this.getRelationXml() +
+    '</tableRelationShip>' +
+  '</scratchApplications>';
+    this.templatePropertyService.CreateApp(this.appMeta).subscribe(res => {
+      return res;
+    });
   }
 
 }

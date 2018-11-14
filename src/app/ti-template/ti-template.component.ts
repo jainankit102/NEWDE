@@ -9,14 +9,15 @@ export class TiTemplateComponent implements OnInit {
 
   payLoad = {
     object: [],
-    relation: []
+    relation: [],
+    appName: 'Edu test2'
   };
 
   objectMeta = {
     propertyType: '',
     objectId: '',
     payLoad: this.payLoad
-  }
+  };
   selectedElement = '';
 
   constructor() { }
@@ -25,23 +26,23 @@ export class TiTemplateComponent implements OnInit {
   }
 
    dragRect(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
+    ev.dataTransfer.setData('text', ev.target.id);
 }
  allowDrop(ev) {
     ev.preventDefault();
 }
  drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    if (data == 'object') {
+    const data = ev.dataTransfer.getData('text');
+    if (data === 'object') {
       this.createObject();
     }
   }
 
   createObject() {
-    this.payLoad.object.push({objectName: 'qqqqqq', id: 'Object_'+this.payLoad.object.length});
+    this.payLoad.object.push({objectName: 'qqqqqq', id: 'Object_' + this.payLoad.object.length});
     this.selectedElement = this.payLoad.object.find(val => val.objectName === 'qqqqqq').id;
-    this.objectMeta.propertyType = 'object'
+    this.objectMeta.propertyType = 'object';
   }
 
   getObjectName(value) {

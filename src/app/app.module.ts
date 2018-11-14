@@ -6,6 +6,8 @@ import { DesignAppModule } from './design-app/design-app.module';
 import { AppComponent } from './app.component';
 import { TiTemplateComponent } from './ti-template/ti-template.component';
 import { TemplatePropertyComponent } from './template-property/template-property.component';
+import { TemplatePropertyService } from './template-property/template-property.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -16,9 +18,10 @@ import { TemplatePropertyComponent } from './template-property/template-property
   ],
   imports: [
     BrowserModule,
-    DesignAppModule
+    DesignAppModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TemplatePropertyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
